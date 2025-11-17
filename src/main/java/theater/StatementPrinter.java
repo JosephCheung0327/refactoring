@@ -31,7 +31,7 @@ public class StatementPrinter {
                 p.getAudience()));
         }
 
-        result.append(String.format("Amount owed is %s%n", getFormat(getTotalAmount())));
+        result.append(String.format("Amount owed is %s%n", usd(getTotalAmount())));
         result.append(String.format("You earned %s credits%n", getTotalVolumeCredits()));
         return result.toString();
     }
@@ -52,7 +52,7 @@ public class StatementPrinter {
         return result;
     }
 
-    private static String getFormat(int totalAmount) {
+    private static String usd(int totalAmount) {
         return NumberFormat.getCurrencyInstance(Locale.US).format(totalAmount / Constants.PERCENT_FACTOR);
     }
 
